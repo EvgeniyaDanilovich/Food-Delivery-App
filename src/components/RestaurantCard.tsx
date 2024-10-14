@@ -1,7 +1,8 @@
 import React from 'react';
+import {Text} from 'react-native';
 
 function RestaurantCard(): React.JSX.Element {
-  return <div>Cart of each restaurant.</div>;
+  return <Text>Cart of each restaurant.</Text>;
 }
 
 export default RestaurantCard;

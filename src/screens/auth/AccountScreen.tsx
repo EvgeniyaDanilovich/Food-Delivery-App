@@ -1,7 +1,8 @@
 import React from 'react';
+import {Text} from 'react-native';
 
 function AccountScreen(): React.JSX.Element {
-  return <div>Do you have an account?</div>;
+  return <Text>Do you have an account?</Text>;
 }
 
 export default AccountScreen;
