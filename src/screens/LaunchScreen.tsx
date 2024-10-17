@@ -1,8 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
 
-function LaunchScreen(): React.JSX.Element {
+export const LaunchScreen: React.FC = () => {
   return <Text>LaunchScreen</Text>;
-}
-
-export default LaunchScreen;
+};

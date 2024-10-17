@@ -1,8 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
 
-function AccountScreen(): React.JSX.Element {
+export const AccountScreen: React.FC = () => {
   return <Text>Do you have an account?</Text>;
-}
-
-export default AccountScreen;
+};

@@ -1,8 +1,6 @@
 import React from 'react';
 import {Text} from 'react-native';
 
-function RestaurantCard(): React.JSX.Element {
+export const RestaurantCard: React.FC = () => {
   return <Text>Cart of each restaurant.</Text>;
-}
-
-export default RestaurantCard;
+};
