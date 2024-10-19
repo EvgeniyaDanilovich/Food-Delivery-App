@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {incrementAsync} from './incrementAsyncThunk';
+import {incrementAsync} from './incrementAsync';
 
 export interface CounterState {
   value: number;
