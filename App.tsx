@@ -1,118 +1,76 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {Provider} from 'react-redux';
+import {store} from './src/store/store';
+import {MainNavigator} from './src/navigation/main';
+import {ThemeProvider} from './src/utilities/providers/themeContext';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+export const App: React.FC = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <Provider store={store}>
+      <ThemeProvider>
+        <MainNavigator />
+      </ThemeProvider>
+    </Provider>
   );
-}
+};
+// import React, {useContext} from 'react';
+// import {NavigationContainer} from '@react-navigation/native';
+// import {createNativeStackNavigator} from '@react-navigation/native-stack';
+// import LaunchScreen from './src/screens/LaunchScreen';
+// import OnboardingScreen from './src/screens/onboarding/OnboardingScreen';
+// import AccountScreen from './src/screens/auth/AccountScreen';
+// import RestaurantsScreen from './src/screens/main/RestaurantsScreen';
+// import {Provider} from 'react-redux';
+// import {store} from './src/store/store';
+// import {SettingsScreen} from './src/screens/main/SettingsScreen';
+// import {
+//   ThemeProvider,
+//   ThemeContext,
+// } from './src/utilities/providers/themeContext';
+// import {View, Text} from 'react-native';
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+// const Stack = createNativeStackNavigator();
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+// export const App: React.FC = () => {
+//   return (
+//     <Provider store={store}>
+//       <ThemeProvider>
+//         <MainApp />
+//       </ThemeProvider>
+//     </Provider>
+//   );
+// };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+// export const MainApp: React.FC = () => {
+//   const themeContext = useContext(ThemeContext);
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+//   if (!themeContext) {
+//     return (
+//       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+//         <Text>Loading theme...</Text>
+//       </View>
+//     );
+//   }
 
-export default App;
+//   const {theme} = themeContext;
+
+//   return (
+//     <NavigationContainer theme={theme}>
+//       <Stack.Navigator
+//         screenOptions={{
+//           headerStyle: {
+//             backgroundColor: theme.colors.background,
+//           },
+//           headerTintColor: theme.colors.text,
+//         }}>
+//         <Stack.Screen name="Settings" component={SettingsScreen} />
+//         <Stack.Screen name="Launch" component={LaunchScreen} />
+//         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+//         <Stack.Screen name="Account" component={AccountScreen} />
+//         <Stack.Screen name="Restaurant" component={RestaurantsScreen} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// };
+
+// export default App;
