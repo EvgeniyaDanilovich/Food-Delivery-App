@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import {useWindowDimensions} from 'react-native';
 import {ThemeContext} from '../../utilities/providers/themeContext';
 
-export const SettingsScreen = () => {
+export const SettingsScreen: React.FC = () => {
   const themeContext = useContext(ThemeContext);
   const windowWidth = useWindowDimensions().width;
 
