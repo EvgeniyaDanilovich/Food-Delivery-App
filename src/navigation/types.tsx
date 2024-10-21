@@ -1,13 +1,13 @@
-export enum screenNames {
-  launch = 'Launch',
-  onboarding = 'Onboarding',
-  account = 'Account',
-  restaurants = 'Restaurants',
+export enum SCREEN_NAMES {
+  LAUNCH = 'Launch',
+  ONBOARDING = 'Onboarding',
+  ACCOUNT = 'Account',
+  RESTAURANTS = 'Restaurants',
 }
 
 export type RootStackParamList = {
-  [screenNames.launch]: undefined;
-  [screenNames.onboarding]: undefined;
-  [screenNames.account]: undefined;
-  [screenNames.restaurants]: undefined;
+  [SCREEN_NAMES.LAUNCH]: undefined;
+  [SCREEN_NAMES.ONBOARDING]: undefined;
+  [SCREEN_NAMES.ACCOUNT]: undefined;
+  [SCREEN_NAMES.RESTAURANTS]: undefined;
 };

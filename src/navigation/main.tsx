@@ -5,7 +5,7 @@ import {LaunchScreen} from '../screens/LaunchScreen';
 import {OnboardingScreen} from '../screens/onboarding/OnboardingScreen';
 import {AccountScreen} from '../screens/auth/AccountScreen';
 import {RestaurantsScreen} from '../screens/main/restaurants/RestaurantsScreen';
-import {RootStackParamList, screenNames} from './types';
+import {RootStackParamList, SCREEN_NAMES} from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -13,14 +13,14 @@ export const MainNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name={screenNames.launch} component={LaunchScreen} />
+        <Stack.Screen name={SCREEN_NAMES.LAUNCH} component={LaunchScreen} />
         <Stack.Screen
-          name={screenNames.onboarding}
+          name={SCREEN_NAMES.ONBOARDING}
           component={OnboardingScreen}
         />
-        <Stack.Screen name={screenNames.account} component={AccountScreen} />
+        <Stack.Screen name={SCREEN_NAMES.ACCOUNT} component={AccountScreen} />
         <Stack.Screen
-          name={screenNames.restaurants}
+          name={SCREEN_NAMES.RESTAURANTS}
           component={RestaurantsScreen}
         />
       </Stack.Navigator>
